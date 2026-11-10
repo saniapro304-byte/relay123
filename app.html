@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru" data-theme="dark" data-skin="win11">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Relay — App</title>
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Рейл серверов -->
+    <nav class="server-rail" aria-label="Серверы">
+      <button class="rail-btn rail-home" data-server="dm" title="Личные сообщения">✉</button>
+      <div class="rail-divider"></div>
+      <div class="rail-servers" id="serverList"></div>
+      <button class="rail-btn rail-add" title="Добавить сервер">+</button>
+    </nav>
+
+    <!-- Колонка каналов -->
+    <aside class="channels-panel">
+      <header class="channels-head">
+        <button class="server-title" id="serverTitle" type="button">Выберите сервер</button>
+      </header>
+      <div class="channels-scroll" id="channelTree"></div>
+      <footer class="me-panel" id="mePanel" hidden>
+        <img class="me-avatar" alt="" width="32" height="32" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+        <div class="me-meta">
+          <span class="me-name">Загрузка…</span>
+          <span class="me-status">…</span>
+        </div>
+      </footer>
+    </aside>
+
+    <!-- Чат -->
+    <section class="chat-panel">
+      <header class="chat-head" id="chatHead"></header>
+      <div class="messages" id="messages" role="log" aria-live="polite"></div>
+      <form class="composer" id="composer" autocomplete="off">
+        <textarea id="composerInput" rows="1" placeholder="Сообщение…" aria-label="Сообщение"></textarea>
+        <button type="submit" class="send-btn" aria-label="Отправить">➤</button>
+      </form>
+    </section>
+
+    <!-- Участники -->
+    <aside class="members-panel" id="membersPanel">
+      <div class="members-scroll" id="memberList"></div>
+    </aside>
+  </div>
+
+  <!-- Модальное окно настроек темы -->
+  <dialog id="themeModal" class="theme-modal">
+    <form method="dialog" class="theme-form">
+      <h2>Оформление</h2>
+      
+      <div class="theme-row">
+        <label for="themePreset">Базовый пресет:</label>
+        <select id="themePreset">
+          <option value="dark">Тёмная</option>
+          <option value="light">Светлая</option>
+          <option value="amoled">AMOLED</option>
+          <option value="custom">Кастомная</option>
+        </select>
+      </div>
+
+      <div id="customControls" class="custom-controls" hidden>
+        <div class="theme-row">
+          <label for="colorAccent">Акцент:</label>
+          <input type="color" id="colorAccent" value="#a855f7">
+        </div>
+        <div class="theme-row">
+          <label for="colorBgChat">Фон чата:</label>
+          <input type="color" id="colorBgChat" value="#0b0713">
+        </div>
+        <div class="theme-row">
+          <label for="colorMsgOwn">Свои сообщения:</label>
+          <input type="color" id="colorMsgOwn" value="#311c54">
+        </div>
+        <div class="theme-row">
+          <label for="colorBgLauncher">Фон лаунчера:</label>
+          <input type="color" id="colorBgLauncher" value="#0b0713">
+        </div>
+      </div>
+
+      <div class="theme-actions">
+        <button type="button" id="btnResetTheme">Сброс</button>
+        <button type="button" id="btnExportTheme">Экспорт</button>
+        <label class="btn-import">
+          Импорт
+          <input type="file" id="importThemeInput" accept=".json" hidden>
+        </label>
+        <button value="close" class="btn-primary">Закрыть</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

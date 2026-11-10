@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru" data-skin="win11" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Relay</title>
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/launcher.css">
+</head>
+<body class="launcher">
+  <div class="launcher-bg" aria-hidden="true"></div>
+
+  <main class="launcher-grid" role="main">
+    <button class="app-tile" data-app="relay" aria-label="Открыть Relay">
+      <span class="app-tile-icon">
+        <img src="./assets/relay-icon.png" alt="" width="96" height="96" decoding="async">
+      </span>
+      <span class="app-tile-name">Relay</span>
+    </button>
+  </main>
+
+  <nav class="launcher-dock" aria-label="Док">
+    <button class="dock-btn" data-action="theme" title="Сменить тему">◐</button>
+    <button class="dock-btn" data-action="skin" title="Сменить скин">✦</button>
+  </nav>
+
+  <script type="module" src="./js/launcher.js"></script>
+</body>
+</html>
